@@ -4,10 +4,13 @@ import configparser
 
 # Author: vipulgupta2048
 # Date: 30/05/18
-# Libraries needed - PyGitHub ----> run " pip3 install pygithub --user " before
-# execution
+# Libraries needed - ConfigParser, PyGitHub
+# run "pip3 install pygithub configparser --user"
 
-'''Data such as missing license mentions, abstract of activities from the wikis, missing links from help activity, missing sections etc. In addition to this, ensuring that activity.info file is consistent and containing all information needed'''
+'''Data such as missing license mentions, abstract of activities from
+ the wikis, missing links from help activity, missing sections etc.
+ In addition to this, ensuring that activity.info file is consistent and
+ containing all information needed'''
 
 cp = configparser.ConfigParser()
 activityFile = 'activity/activity.info'
@@ -65,14 +68,10 @@ def readme(repo):
     except GithubException as e:
         print("README not found in the repo")
 
-# def summary(repo):
-    # try:
-        # strin = repo.get_file_contents('README.md')
-        # cp.read_string(string.decode())
-        # print (string)
-    # except Exception as e:
-        # print (e)
 
+# def summary(repo):
+    # tried various methods to extract summary of an activity but
+    # couldn't (Methods used configparser, scraping, raw_extract)
 
 def activity(repo):
     '''Return True if the repository is an activity, else false'''
