@@ -1,7 +1,14 @@
 # SugarPort
 
 All source code related to the project used and made for Google Summer of Code 2018 under Sugar Labs. 
-**Project Details** - [GSoC Official Website](http://tiny.cc/vgsoc) | Blogs - **Mixster** --> [GSoC#2018](https://mixstersite.wordpress.com/gsoc2018/) | **Progress Tracker** and meeting MoM's - [Sugar Tracker](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?usp=sharing) 
+**Project Details** - [GSoC Official Website](http://tiny.cc/vgsoc) | Blogs - **Mixster** --> [GSoC#2018](https://mixstersite.wordpress.com/gsoc2018/) | **Progress Tracker** and meeting MoM's - [Sugar Tracker](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?usp=sharing)
+
+ ____                         ____            _   
+/ ___| _   _  __ _  __ _ _ __|  _ \ ___  _ __| |_ 
+\___ \| | | |/ _` |/ _` | '__| |_) / _ \| '__| __|
+ ___) | |_| | (_| | (_| | |  |  __/ (_) | |  | |_ 
+|____/ \__,_|\__, |\__,_|_|  |_|   \___/|_|   \__|
+             |___/                                
 
 ## Introduction
 **SugarPort** started out as WikiPort before I was retasked to work on a similar project with a different aim of setting up the new Activity Server for Sugar Labs called **ASLOv3**. This repository will work as a holdout till the project is ready for all the scripts and code that would be written for its deployment.
