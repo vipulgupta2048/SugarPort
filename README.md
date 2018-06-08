@@ -5,6 +5,10 @@
                              |____/ \__,_|\__, |\__,_|_|  |_|   \___/|_|   \__|
                                           |___/                                
 
+[![HitCount](http://hits.dwyl.io/vipulgupta2048/sugarport.svg)](http://hits.dwyl.io/vipulgupta2048/sugarport) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)  ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
+
 All source code related to the project used and made for Google Summer of Code 2018 under Sugar Labs. 
 **Project Details** - [GSoC Official Website](http://tiny.cc/vgsoc) | Blogs - **Mixster** --> [GSoC#2018](https://mixstersite.wordpress.com/gsoc2018/) | **Progress Tracker** and meeting MoM's - [Sugar Tracker](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?usp=sharing)
 
