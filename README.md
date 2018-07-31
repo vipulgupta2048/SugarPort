@@ -9,7 +9,7 @@
 
 
 
-All source code related to the project used and made for Google Summer of Code 2018 under Sugar Labs. 
+All source code related to the project that was used and made for Google Summer of Code 2018 under Sugar Labs is housed here. 
 **Project Details** - [GSoC Official Website](http://tiny.cc/vgsoc) | Blogs - **Mixster** --> [GSoC#2018](https://mixstersite.wordpress.com/gsoc2018/) | **Progress Tracker** and meeting MoM's - [Sugar Tracker](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?usp=sharing)
 
 ## Introduction
@@ -22,26 +22,53 @@ All source code related to the project used and made for Google Summer of Code 2
 (_Edited from [Wikipedia](https://en.wikipedia.org/wiki/Sugar_Labs)_)
 
 ## Aim
-To deploy ASLOv3 by the end of Summer 2018 (i.e August according to the timeline)
+To fix activity metadata by the end of Summer 2018 to facilitate the developement and deployment of the new activity server, ASLOv3 (i.e August according to the timeline given by Google)
 
 ## Work Done
-- For the successful deployment of ASLOv3, the activity metadata is added/updated in the activity repositories for correct information to be displayed on the web portal. (All 161+ of them present at [sugarlabs](www.github.com/sugarlabs) More details about this are present in the Sugar Tracker.
+- For the successful deployment of ASLOv3, the activity metadata is added/updated in the activity repositories for correct information to be displayed on the web portal. (All 161+ of them present at [sugarlabs](www.github.com/sugarlabs) More details about this are present in the Sugar Tracker. [Refer #`]
 
-- A script automates analyzing repositories present on GitHub using PyGitHub and GitHub API. Parse them with ConfigParser finding parameters that are missing and storing the clean output in a separate file for future reference. 
+- A script automates analyzing repositories present on GitHub using PyGitHub and GitHub API. Parse them with ConfigParser finding parameters that are missing and storing the clean output in a separate file for future reference. This method is the online way of doing things. A bit slow as GitHub induces a delay in API calls hence creating a bottleneck that is not feasilble for out project.
 
-- After analysis gets completed, activities are fixed with their metadata updated as necessary. This can be done manually as well as automated (working on that)
+- This was overcome by the bypassing the fixing that was being done online to the fixing these repositories now in the local system of the user as we clone them through an automated script and run multiple checks and processes on them. 
 
-### Testing the Analysis Script
-1. Fork and clone this repository. 
-`git clone [Forked repository URL]` 
-2. Install the requirements listed in the `requirements.txt` file
-`pip install -r requirements.txt` 
-3. Enter your GitHub API access token, refer to this [tutorial](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) for generating your personal token.
-4. Open the repo-statuschecker-draft.py and enter the token where listed. 
-5. Run the script using the command. 
-`python3 -u repo-statuschecker.py | tee output.txt`
-6. It takes time to execute completely, after execution you will find output.txt showing you the results of the analysis. 
+- After analysis gets completed, activities are fixed with their metadata updated as necessary. The changes are either pushed manually or automatically (Alpha) to the fork to create a pull request and suggest changes in the codebase.
+
+## Testing 
+1. Fork and clone this repository 
+```
+git clone [Forked repository URL]
+```
+
+2. Create and activate a virtual environment preferably through Python3
+
+```
+python3 -m virtualenv env
+source env/bin/activate
+```
+	
+3. Install the requirements listed in the `requirements.txt` file
+
+```
+pip install -r requirements.txt
+``` 
+
+From here we can use both the analysis scripts, further instructions followed are first for online and later for the offline script. 
+
+### Online Script
+
+1. You would be needing a GitHub API access token, refer to this [tutorial](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) for generating your personal token.
+2. Open the `online-checker.py` and enter the token where listed. 
+3. Run the script using the command. 
+
+```
+python3 -u repo-statuschecker.py | tee output.txt
+```
+
+4. It takes time to execute completely, after execution you will find output.txt showing you the results of the analysis. 
   
+### Offline Script
+To be added.
+
 ## License
-The source code is under [GPLv3](https://github.com/vipulgupta2048/SugarPort/blob/master/LICENSE)
+The source code is under [GPLv3 or later](https://github.com/vipulgupta2048/SugarPort/blob/master/LICENSE)
 
