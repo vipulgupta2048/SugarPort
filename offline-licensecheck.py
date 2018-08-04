@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright (C) 2018, Vipul Gupta
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2018, Vipul Gupta - vipulgupta2048
 
 # This file is part of SugarPort.
 
@@ -16,18 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
- Data such as missing license mentions, missing links from
- help activity, missing sections etc. In addition to this, ensuring that
- activity.info file is consistent and containing all information needed
-
- It does something like this - clones the fork, switches to develop
- branch, makes a .xo, runs the build script, the .xo file name needs to
- be written manually, then it unzips it, then licensechecks and then
- check if necessary files and directory are present or not. When done
- opens a window in the default browser to make a PR.
-'''
-
 import configparser
 import os
 import time
@@ -36,16 +25,16 @@ import subprocess
 from zipfile import ZipFile
 from pathlib import Path
 
-# Getting ready
+# Running tests --> verify build & create .xo
 def initialise():
     subprocess.call(['python', 'setup.py', "dist_xo"])
     subprocess.call(['python', 'setup.py', "build"])
     print("------------------------------------\n")
 
 
-# opening the zip file in READ mode
+# Extract zip files in READ mode 
 def extractzip():
-    # specifying the zip file name that was created of the setup
+    # Specify the zip filename in the commandline
     x = raw_input("Enter file name = ")
     file_name = activity + "/dist/"+ x +".xo"
     with ZipFile(file_name, 'r') as zip:
@@ -53,24 +42,23 @@ def extractzip():
         print('Extracting all the files now...')
         zip.extractall()
         print('Done!')
+        os.chdir(activity)
         print("------------------------------------\n")
 
 
-# LicenseCheck
+# Checking Licenses and copyrights in source code 
 def licensechecks():
     z = activity + '/dist/'
     subprocess.call(['licensecheck','--recursive',z])
     print("------------------------------------\n")
 
 
-# Checking through activity.info
+# Analyzing activity.info
 def analyse_activityinfo():
-    '''Return True if the repository has a license field in
-    activity/acitvity.info, else false'''
     if os.path.exists(activityFile):
         cp = configparser.ConfigParser()
         cp.read(activityFile, encoding='utf-8')
-        print("Going through activity.info file")
+        print("Analyzing metadata ...")
         try:
             for option in OPTIONS:
                 print('{}.{:<20}  : {}'.format(ACTIVITY_SECTION, option, cp.has_option(ACTIVITY_SECTION, option)))
@@ -90,23 +78,25 @@ def analyse_activityinfo():
                     if not cp.has_option(ACTIVITY_SECTION,'url'):
                         url2 = "https://help.sugarlabs.org"
                         webbrowser.open_new_tab(url2)
-
-            print("------------------------------------\n")
         except configparser.NoSectionError as err:
             print(err)
 
+        # Opening activity.info for edits in mousepad application
+        subprocess.call(["mousepad", "activity.info"], stdout=subprocess.PIPE, stdin=subprocess.PIPE,  stderr=subprocess.PIPE)
+        print("------------------------------------\n")
 
-# Finding COPYING file
+
+# Finding COPYING file 
 def findLicense():
     try:
-        l = [w for w in os.listdir("./") if "COPYING" in w]
-        print("COPYING file found in the repo.\n{}".format(l))
+        print([w for w in os.listdir("./") if "COPYING" in w])
+        print("COPYING file found in the repo.\n")
     except Exception as e:
         print(e)
         print("COPYING file not found in the repo.\n")
 
 
-# Making a .gitignore
+# Making a .gitignore if not found
 def giti():
     giti = Path(activity + "/.gitignore")
     wines = ["*.pyc\n","locale/\n","dist/\n","*.patch\n","*.bak\n","*.swp\n","*~\n"]
@@ -124,38 +114,37 @@ def giti():
                     g.writelines(wines)
 
 
-# Finding if screenshots exist
+# Finding if screenshots exist; If not, new file made to add names of activities to click new screenshots 
 def screenshot():
     shot = Path(activity + "/screenshots")
     if shot.exists():
         print("\n Screenshots directory found in the repo \n")
     else:
         print("Screenshots directory NOT found in the repo")
-        u = open('/home/vipulgupta2048/Desktop/note.txt', "a")
-        u.write(x)
-        u.close()
-        print("Noting it down")
+        with open('some_name.txt', "a") as u:
+            u.write(x)
+            u.close()
+            print("Noting it down")
         print("------------------------------------\n")
 
 
-# Making a PR
+# Making a PR - Opening the fork when changes pushed
 def openurl():
     print('Opening {} '.format(url))
     webbrowser.open_new_tab(url)
 
 
-# Repo Caller
+# Repository Caller - Enter names of forked repositories under your_account in GitHub
 set = []
 
-# Control panel
+# Control panel - Script needs to run in the home directory otherwise change path variable
 for x in set:
-    url = https://www.github.com/vipulgupta2048/ + x
+    url = https://www.github.com/your_account/ + x
     subprocess.call(['git','clone','--recursive', url])
-    path = "/home/vipulgupta2048/SUGAR/ready/" + x
-    os.chdir(path)
+    activity = os.getcwd() + "/" + x
+    os.chdir(activity)
     subprocess.call(['git','checkout','-b','develop'])
-    activity = os.getcwd()
-    print ("We are in {}".format(activity))
+    print ("Just to be sure, we are in {}".format(activity))
 
     activityFile = activity + '/activity/activity.info'
     ACTIVITY_SECTION = 'Activity'
@@ -171,6 +160,8 @@ for x in set:
     analyse_activityinfo()
     findLicense()
     screenshot()
+    giti()
+    
     y='r'
     while(y=='r')
         y = raw_input("Ready to PR (y) Check again (r) = ")
@@ -180,4 +171,10 @@ for x in set:
             licensechecks()
             analyse_activityinfo()
             findLicense()
-            screenshot()
+            
+      
+ # To-DO
+ # Finalise giti() function add it to control panel 
+ # Pull request automation 
+ # Forking through GitHub API automation
+ # Scrubbing
