@@ -27,7 +27,7 @@ _Extended work, also includes the deployment of the activity server. Hence the w
 
 ## Work Done
 - To properly deploy **ASLOv3**, the activity metadata is fixed in activity repositories hosted on Github under the organization, **SugarLabs**. With correct metadata, accurate information can be displayed on the web portal. 
-( Stats - There are about 161+ activities present. Out of them, only 84 are working. )
+(statistics - There are about 161+ identified activities present. Out of them, only 84 are working)
 
 - Hence, to automate analyzes and fixing of metadata, Python scripts were created that work as a **Repo-Analyzer** online and offline separately to facilitate the fixing of scripts.
 
@@ -39,7 +39,7 @@ The offline checker makes it easier and more efficient to fix activity metadata 
 
 _For a detailed methodology behind the scripts, [refer here](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?disco=AAAABzrX54M)._
 
-# Testing (For Ubuntu 16.04 or above)
+# Testing (for Ubuntu 16.04 or above)
 -  Fork and clone this repository 
 ```
 git clone [Forked repository URL]
@@ -78,7 +78,7 @@ python3 -u online_checker.py | tee output.txt
 ```shell
 python3 -u offline_checker.py | tee output.txt
 ```
-- Enter your `GitHub` username when prompted. (Example - `vipulgupta2048`) 
+- Enter your `GitHub` username when prompted. (example - `vipulgupta2048`) 
 - Enter one or more repository names that you have forked from [Sugar Labs](https://github.com/sugarlabs) when prompted (Press `enter` to stop adding to the list)
 - Every repository listed which is forked under the username provided will be cloned. 
 - Fix the errors and anomalies listed, get the changes committed and pushed to your fork. When ready, press either `r` to run the tests again or `y` to make a pull request. 
