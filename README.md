@@ -37,8 +37,8 @@ _Extended work, also includes the deployment of the activity server. Hence the w
 
 The offline checker makes it easier and more efficient to fix activity metadata with least manual work involved.  The changes are either pushed manually or automatically (Alpha phase) to the fork that was created of the upstream GitHub repo to create a pull request and suggest changes in the codebase. The repo-caller function has been tested with over 50 activities at once. 
 
-*For a detailed methodology behind the scripts, [refer here](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?disco=AAAABzrX54M). 
-*
+_For a detailed methodology behind the scripts, [refer here](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?disco=AAAABzrX54M)._
+
 # Testing (For Ubuntu 16.04 or above)
 -  Fork and clone this repository 
 ```
@@ -58,7 +58,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ``` 
 
-From here we can use both the analysis scripts, further instructions followed are first for online and later for the offline script. 
+From here both analysis scripts can be used, further instructions as follows. 
 
 ### Online Script (GitHub APIv3 + PyGitHub)
 
@@ -70,7 +70,7 @@ From here we can use both the analysis scripts, further instructions followed ar
 python3 -u online_checker.py | tee output.txt
 ```
 
-- It takes time to execute completely. After execution, output.txt is generated containing the result of the analysis. 
+- It takes time to execute completely. After execution, `output.txt` is generated containing the result of the analysis. 
   
 ### Offline Script (ConfigParser + OS + Subprocess)
  
@@ -78,11 +78,11 @@ python3 -u online_checker.py | tee output.txt
 ```shell
 python3 -u offline_checker.py | tee output.txt
 ```
-- Enter your `GitHub` username when prompted. 
-- Enter one or more repository names that you have forked when prompted (Press `enter` to stop adding to the list)
+- Enter your `GitHub` username when prompted. (Example - `vipulgupta2048`) 
+- Enter one or more repository names that you have forked from [Sugar Labs](https://github.com/sugarlabs) when prompted (Press `enter` to stop adding to the list)
 - Every repository listed which is forked under the username provided will be cloned. 
-- Fix the errors and anomalies listed, get the changes committed and pushed to your fork. When ready, press either 'r' to run the tests again or 'y' to make a pull request. 
-- When the list is exhausted, and the script has finished execution output.txt is generated containing the result of the analysis.
+- Fix the errors and anomalies listed, get the changes committed and pushed to your fork. When ready, press either `r` to run the tests again or `y` to make a pull request. 
+- When the list is exhausted, and the script has finished execution `output.txt` is generated containing the result of the analysis.
 
 ## License
 The source code is under [GPLv3 or later](https://github.com/vipulgupta2048/SugarPort/blob/master/COPYING)
