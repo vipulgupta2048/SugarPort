@@ -142,10 +142,18 @@ def openurl():
     webbrowser.open_new_tab(url)
 
 
-# Repository Caller
+# Execution starts here - Repository Caller
 # Enter names of forked repositories that needs to be analysed under your_account on GitHub
-CALLER = []
+
 USERNAME = input("Enter your GitHub url: ")
+CALLER = []
+while 1:
+    q = input("Enter forked repository name (Leave blank to stop) = ")
+    if q == "":
+        print("Thank you for adding !!")
+        break
+    CALLER.append(q)
+print ("Repositories in pipeline for analysis are as follows {} ".format(CALLER))
 
 # Control panel
 for x in CALLER:
