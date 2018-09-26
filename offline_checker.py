@@ -60,7 +60,7 @@ def analyse_activityinfo():
     if os.path.exists(activityFile):
         cp = configparser.ConfigParser()
         cp.read(activityFile, encoding='utf-8')
-        print("Analyzing metadata ...")
+        print("Analyzing metadata ... \n")
         try:
             for option in OPTIONS:
                 print('{}.{:<20}  : {}'.format(SECTION, option, cp.has_option(SECTION, option)))
@@ -106,7 +106,7 @@ def giti():
         with open(".gitignore", "w") as g:
             g.writelines(entities)
             g.close()
-    # Experimental
+    # Experimental - Alpha
     #~ else:
         #~ with open('.gitignore', "r+") as g:
             #~ print("here")
@@ -119,7 +119,8 @@ def giti():
                 #~ print("entity added")
 
     print("*******.gitignore after corrections******")
-    print("\n {}".format(subprocess.call(['cat', str(giti)])))
+    with open(str(gitipath), 'r') as gitiread:
+        print (gitiread.read())
 
 
 def screenshot():
@@ -145,7 +146,7 @@ def openurl():
 # Execution starts here - Repository Caller
 # Enter names of forked repositories that needs to be analysed under your_account on GitHub
 
-USERNAME = input("Enter your GitHub url: ")
+USERNAME = input("Enter your GitHub username : ")
 CALLER = []
 while 1:
     q = input("Enter forked repository name (Leave blank to stop) = ")
@@ -172,12 +173,12 @@ for x in CALLER:
         'categories', 'category', 'single_instance', 'website', 'url',
         'tags', 'summary', 'repository',]
 
-    initialise()
-    extractzip()
-    licensechecks()
-    analyse_activityinfo()
-    find_license()
-    screenshot()
+    #~ initialise()
+    #~ extractzip()
+    #~ licensechecks()
+    #~ analyse_activityinfo()
+    #~ find_license()
+    #~ screenshot()
     giti()
 
     y = 'r'
