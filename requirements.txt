@@ -5,5 +5,5 @@ idna==2.7
 pathlib==1.0.1
 PyGithub==1.39
 PyJWT==1.6.4
-requests==2.19.1
+requests==2.20.0
 urllib3==1.23

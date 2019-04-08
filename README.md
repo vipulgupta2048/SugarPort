@@ -11,6 +11,8 @@
 All source code related to the project that was used and made for Google Summer of Code 2018 under Sugar Labs is housed here. 
 **Project Details** - [GSoC Official Website](http://tiny.cc/vgsoc) | Blogs - **Mixster** --> [GSoC#2018](https://mixstersite.wordpress.com/gsoc2018/) | **Progress Tracker** and meeting MoM's - [Sugar Tracker](https://docs.google.com/document/d/1VdzjA-DnEBh0ntHY17ktXlp7c2pIofq8458gSCTwiSM/edit?usp=sharing)
 
+**Update:** [Click here](https://github.com/vipulgupta2048/SugarPort/blob/master/progress_tracker.md) to find list of all activities fixed and PR's made.
+
 ## Introduction
 **SugarPort** started out as WikiPort before I was retasked to work on a similar project with a different aim of setting up the new Activity Server for Sugar Labs called **ASLOv3**. This repository will work as a holdout until the project is ready for all the scripts and code that would be written for its deployment and maintenance.
 
