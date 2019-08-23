@@ -173,12 +173,12 @@ for x in CALLER:
         'categories', 'category', 'single_instance', 'website', 'url',
         'tags', 'summary', 'repository',]
 
-    #~ initialise()
-    #~ extractzip()
-    #~ licensechecks()
-    #~ analyse_activityinfo()
-    #~ find_license()
-    #~ screenshot()
+    initialise()
+    extractzip()
+    licensechecks()
+    analyse_activityinfo()
+    find_license()
+    screenshot()
     giti()
 
     y = 'r'

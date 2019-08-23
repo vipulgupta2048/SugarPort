@@ -76,7 +76,7 @@ def readme(repo):
     except GithubException as e:
         print("README not found in the repo")
 
-# Control Panel 
+# Control Panel
 def activity(repo):
     '''Return True if the repository is an activity, else false'''
     try:
@@ -93,7 +93,7 @@ def activity(repo):
 # Authentication
 if __name__ == '__main__':
     # Enter your access token here
-    g = Github("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+    g = Github("4e0ae50e9a2fd0224eca3e4dff0f9a6038b4745e")
     # Replace with organisation name
     sugar_activities = g.get_organization("sugarlabs")
     # Searching all repo of the organiztion
