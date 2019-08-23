@@ -93,7 +93,7 @@ def activity(repo):
 # Authentication
 if __name__ == '__main__':
     # Enter your access token here
-    g = Github("4e0ae50e9a2fd0224eca3e4dff0f9a6038b4745e")
+    g = Github("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     # Replace with organisation name
     sugar_activities = g.get_organization("sugarlabs")
     # Searching all repo of the organiztion
