@@ -4,6 +4,6 @@ configparser==3.5.0
 idna==2.7
 pathlib==1.0.1
 PyGithub==1.39
-PyJWT==1.6.4
+PyJWT==2.4.0
 requests==2.20.0
 urllib3==1.24.2
